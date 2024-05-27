@@ -1,0 +1,239 @@
+$bg_color: rgb(21, 22, 28);
+$container_color: rgb(33, 35, 41);
+$color: rgb(150, 149, 155);
+
+::-webkit-scrollbar {
+  width: 3px;
+  background: rgba($bg_color, 0.5);
+
+  &:hover {
+    background: rgba($bg_color, 7);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color;
+
+  &:hover {
+    background: rgb(104, 103, 107);
+  }
+
+  &:active {
+    background: rgb(65, 64, 67);
+  }
+}
+
+.error {
+  color: tomato;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.menu_mini {
+  position: absolute;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  margin: 0.5rem;
+  background: rgba(black, 0.5);
+  border-radius: 50%;
+  border: 2px dashed wheat;
+  transition: all 400ms ease;
+  overflow: hidden;
+
+  // animation-duration: 1s;
+  // animation-name: menu_mini;
+
+  &:hover {
+    border-radius: 50% 50% 0 0;
+    border-bottom: none;
+    width: 225px;
+
+    ~ .menu {
+      display: flex;
+      border-radius: 0 0 1rem 1rem;
+    }
+  }
+
+  &:after {
+    content: "•••";
+    color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes menu_mini {
+  from {
+    width: 75px;
+    height: 75px;
+  }
+
+  to {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: calc(0.5rem + 40px);
+  left: calc(0.5rem);
+  display: none;
+  // ---
+  // display: flex;
+  // ---
+  z-index: 1;
+  background: rgba(black, 0.5);
+  width: 225px;
+  flex-direction: column;
+  align-items: center;
+  color: wheat;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: 2px dashed wheat;
+  transition: all 400ms ease;
+
+  &:hover {
+    display: flex;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+
+    &:not(:first-child) {
+      margin-top: 0.5rem;
+    }
+  }
+
+  .url {
+    display: flex;
+    margin-top: 0.5rem;
+
+    input {
+      border: none;
+      background: $container_color;
+      color: $color;
+      padding: 0.5rem 1rem;
+      outline: none;
+      border-radius: 1rem 0 0 1rem;
+      width: 125px;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: $container_color;
+      color: $color;
+      padding: 0.5rem 1rem;
+      border-radius: 0 1rem 1rem 0;
+      border-left: 1px dashed $bg_color;
+
+      &:hover {
+        background: $bg_color;
+      }
+    }
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    max-height: 400px;
+    overflow-y: scroll;
+    border-radius: 1rem;
+
+    .item {
+      border: none;
+      width: 180px;
+      background: $container_color;
+      color: white;
+      font-weight: 200;
+      letter-spacing: 1px;
+      padding: 0.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px dashed $color;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: $bg_color;
+      }
+    }
+
+    .fav {
+      color: yellow;
+      font-weight: 300;
+    }
+
+    .green {
+      color: #adff2f;
+      font-weight: 300;
+    }
+  }
+
+  .copy {
+    cursor: pointer;
+    margin-top: 0.5rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background: $container_color;
+    color: $color;
+    width: 180px;
+
+    &:hover {
+      background: $bg_color;
+    }
+  }
+}
+
+@supports (backdrop-filter: blur(5px)) {
+  .menu {
+    backdrop-filter: blur(5px);
+    background: rgba(black, 0.1);
+  }
+}
+
+@supports (backdrop-filter: blur(5px)) {
+  .menu_mini {
+    background: rgba(black, 0.1);
+    backdrop-filter: blur(5px);
+  }
+}
+
+.player {
+  --plyr-color-main: #1ac266;
+
+  --plyr-menu-color: rgb(150, 149, 155);
+  --plyr-menu-color: wheat;
+  --plyr-menu-back-border-color: rgb(150, 149, 155);
+  --plyr-menu-back-border-shadow-color: rgba(black, 0);
+  --plyr-menu-arrow-color: rgb(150, 149, 155);
+  --plyr-menu-background: rgb(33, 35, 41);
+
+  > div {
+    > div:nth-child(2) {
+      video {
+        position: sticky;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        transition: all 400ms ease;
+      }
+    }
+  }
+}

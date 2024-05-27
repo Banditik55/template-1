@@ -1,0 +1,335 @@
+$bg_color: rgb(21, 22, 28);
+$container_color: rgb(33, 35, 41);
+$color: rgb(150, 149, 155);
+$sun_filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+
+.main {
+  header {
+    display: flex;
+
+    a {
+      color: $color;
+      text-decoration: none;
+      background-color: $container_color;
+      border-radius: 1rem;
+      padding: 0.8rem 1rem;
+      margin: 1.5rem auto;
+      font-size: 2rem;
+      transition: all 200ms;
+      font-weight: 700;
+
+      &:hover {
+        background: darkcyan;
+        color: white;
+        transition: all 200ms;
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .top {
+      box-sizing: border-box;
+      background: $container_color;
+      border-radius: 1rem;
+      padding-right: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 600px;
+      text-align: end;
+
+      img {
+        border-radius: 1rem 0 0 1rem;
+      }
+
+      .info {
+        margin-bottom: 1rem;
+
+        h1 {
+          font-size: 2rem;
+          font-weight: 400;
+          margin: 0;
+        }
+
+        h3 {
+          font-size: 1.3rem;
+          font-weight: 100;
+          margin: 0;
+        }
+
+        h4 {
+          font-size: 0.9rem;
+          font-weight: 100;
+          line-height: 1rem;
+          margin: 0;
+
+          &:first-of-type {
+            margin-top: 1rem;
+          }
+
+          & + h4 {
+            margin-top: 0.35rem;
+          }
+        }
+
+        p {
+          font-size: 0.8rem;
+          letter-spacing: 1px;
+          margin-top: 0.35rem;
+          margin-bottom: 0;
+
+          a {
+            font-size: 0.8rem;
+          }
+        }
+
+        a {
+          display: inline-block;
+          color: inherit;
+          text-decoration: underline;
+          margin-top: 0.35rem;
+          font-size: 0.9rem;
+
+          &:hover {
+            text-decoration: overline;
+          }
+        }
+      }
+    }
+
+    @media (max-width: "620px") {
+      .top {
+        flex-direction: column;
+        text-align: center;
+        width: auto;
+        padding: 0 1rem;
+        margin: 0 1rem;
+        border-radius: 1rem 1rem 1rem 1rem;
+        max-width: 282px;
+
+        img {
+          margin-top: 1rem;
+          border-radius: 1rem;
+        }
+
+        .info {
+          h1 {
+            margin-top: 0.5rem;
+          }
+
+          h3 {
+            margin-top: 1rem;
+            margin: 0;
+          }
+
+          h4 {
+            margin: 0;
+          }
+
+          h4:last-of-type {
+            line-height: normal;
+          }
+        }
+      }
+    }
+
+    .fsButton {
+      position: absolute;
+      z-index: 9;
+      border: none;
+      background: $container_color;
+      color: $color;
+      left: 0.3rem;
+      top: 0.3rem;
+      text-align: center;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    @media (max-width: "620px") {
+      .playerWrap {
+        width: 100% !important;
+      }
+    }
+
+    .items {
+      margin-top: 1rem;
+      width: 580px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      & > * {
+        margin-left: 4px;
+      }
+
+      .item {
+        width: 100px;
+        height: 25px;
+        background: $container_color;
+        color: $color;
+        border: none;
+        outline: none;
+        transition: all 200ms;
+        border-radius: 0;
+
+        &:hover {
+          width: 150px;
+          cursor: pointer;
+          background: darkcyan;
+          color: white;
+          transition: all 200ms;
+        }
+      }
+
+      button {
+        height: 25px;
+        background: $container_color;
+        color: $color;
+        border: none;
+        outline: none;
+        transition: all 200ms;
+        border-radius: 0;
+
+        &:hover {
+          cursor: pointer;
+          background: darkcyan;
+          color: white;
+          transition: all 200ms;
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      .items {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .items {
+        flex-direction: column;
+
+        & > * {
+          margin-left: 4px;
+          margin-top: 0.5rem;
+        }
+
+        .item {
+          width: 200px;
+
+          &:hover {
+            width: 200px;
+          }
+        }
+
+        button {
+          width: 200px;
+        }
+      }
+    }
+  }
+
+  // loading
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  //   loader
+  .lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

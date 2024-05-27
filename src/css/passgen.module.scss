@@ -1,0 +1,137 @@
+$bg_color: rgb(21, 22, 28);
+$container_color: rgb(33, 35, 41);
+$color: rgb(150, 149, 155);
+
+.main {
+  .header {
+    display: block;
+    text-decoration: none;
+    margin: auto;
+    margin-top: 16px;
+    padding: 8px;
+    width: fit-content;
+    background-color: $container_color;
+    border-radius: 8px;
+    color: inherit;
+    transition: all 200ms ease;
+    font-size: 26px;
+
+    &:hover {
+      background-color: cyan;
+      color: $bg_color;
+    }
+  }
+
+  .content {
+    margin-top: 16px;
+
+    .passgen {
+      width: 400px;
+      background-color: $container_color;
+      padding: 16px;
+      border-radius: 16px;
+      margin: auto;
+
+      .input_row {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+
+        &_l {
+          display: flex;
+
+          input {
+            border-radius: 8px 0 0 8px;
+          }
+
+          .btn {
+            border-radius: 0 8px 8px 0;
+            border-left: 1px rgba($color, 0.3) dashed;
+          }
+        }
+
+        &_r {
+        }
+      }
+
+      input {
+        color: $color;
+        padding: 8px;
+        border: none;
+        background-color: $bg_color;
+
+        font-size: 16px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .settings {
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        gap: 8px;
+
+        .checkbox {
+          align-items: center;
+          display: flex;
+          gap: 4px;
+
+          input {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .btn {
+    width: fit-content;
+    background-color: $bg_color;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 200ms ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: cyan;
+      color: $bg_color;
+
+      .svg {
+        &_restart {
+          color: $bg_color;
+        }
+
+        &_copy {
+          color: $bg_color;
+        }
+      }
+    }
+  }
+
+  .svg {
+    &_restart {
+      display: block;
+      color: $color;
+    }
+  }
+
+  .select {
+    border: none;
+    background-color: $bg_color;
+    color: $color;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+$container_color: rgb(33, 35, 41);
+$color: rgb(150, 149, 155);
+
+.plyr--audio .plyr__controls {
+	padding: 0;
+	background: $container_color;
+	color: $color;
+}

@@ -1,0 +1,359 @@
+$bg_color: rgb(21, 22, 28)
+$container_color: rgb(33, 35, 41)
+$color: rgb(150, 149, 155)
+
+.open
+	cursor: pointer
+	position: absolute
+	top: 0
+	left: 0
+	width: 40px
+	height: 40px
+	background: $container_color
+	margin: 1rem
+	display: flex
+	justify-content: center
+	align-items: center
+	border-radius: 50%
+	transition: all 400ms ease
+	font-size: 1.1rem
+
+	&:hover
+		letter-spacing: 3px
+		background: rgb(50, 100, 50)
+		color: white
+
+.menu
+	padding: 1rem
+	width: 350px
+	background: $container_color
+	position: absolute
+	top: 0
+	left: 0
+	transition: all 400ms ease
+	border-radius: 0 0 1rem 0
+	border-right: 1px dashed rgb(50, 100, 50)
+	border-bottom: 1px dashed rgb(50, 100, 50)
+	// 
+	transform: translateX(-100%)
+	// 
+
+	&.opened
+		transform: translateX(0)
+
+	.close
+		z-index: 1
+		cursor: pointer
+		position: absolute
+		width: 40px
+		height: 40px
+		background: $bg_color
+		display: flex
+		justify-content: center
+		align-items: center
+		border-radius: 50%
+		transition: all 400ms ease
+		font-size: 1.1rem
+
+		&:hover
+			transform: rotate(360deg)
+			background: rgb(100, 50, 50)
+			color: white
+
+	.self
+		.name
+			text-align: center
+			font-size: 1.5rem
+			letter-spacing: 1px
+
+		.img
+			margin-top: 0.5rem
+			display: flex
+			justify-content: center
+
+			img
+				width: 100px
+				height: 100px
+				border-radius: 50%
+
+	.buttons
+		display: flex
+		justify-content: center
+		gap: 0.5rem
+		flex-wrap: wrap
+
+		.add
+			cursor: pointer
+			text-align: center
+			margin-top: 1rem
+			border-radius: 0.7rem
+			background: rgb(50, 100, 50)
+			color: wheat
+			padding: 0.5rem 1rem
+
+			&:hover
+				background: rgb(100, 150, 100)
+				color: white
+
+		.editSelf
+			cursor: pointer
+			text-align: center
+			margin-top: 1rem
+			border-radius: 0.7rem
+			background: rgb(50, 50, 150)
+			color: wheat
+			padding: 0.5rem 1rem
+
+			&:hover
+				background: rgb(100, 100, 200)
+				color: white
+
+	.contacts
+		margin-top: 1rem
+		font-size: 1.5rem
+		margin-left: 1rem
+
+	.items
+		margin-top: 0.5rem
+		display: flex
+		flex-direction: column
+		gap: 0.5rem
+		overflow-y: scroll
+		max-height: 650px
+
+		.empty
+			text-align: center
+			font-size: 1.1rem
+			color: tomato
+
+		.item
+			display: flex
+			cursor: pointer
+			background: $bg_color
+			border-radius: 1rem
+			padding: 0.5rem
+
+			&:hover
+				img
+					margin-left: 0.5rem
+
+			img
+				width: 70px
+				height: 70px
+				border-radius: 50%
+				transition: all 200ms ease
+
+			.info
+				display: flex
+				justify-content: center
+				flex-direction: column
+				padding-left: 1rem
+
+				.name
+				.number
+
+.new
+	z-index: 2
+	background: $container_color
+	padding: 1rem
+	position: absolute
+	border-radius: 1rem
+	display: flex
+	justify-content: center
+	flex-direction: column
+	align-items: center
+	transition: all 400ms ease
+	width: 350px
+	top: 0
+	left: 50%
+	transform: translateX(-50%) translateY(-100%)
+
+	&.opened
+		top: 50%
+		transform: translateX(-50%) translateY(-50%)
+
+	.close
+		cursor: pointer
+		position: absolute
+		top: 0.5rem
+		left: 0.5rem
+		padding: 1rem
+		background: $bg_color
+		border-radius: 50%
+		width: 40px
+		height: 40px
+		display: flex
+		justify-content: center
+		align-items: center
+		transition: all 200ms ease
+
+		&:hover
+			background: rgb(255, 100, 100)
+			color: white
+
+	p
+		font-size: 1.3rem
+
+	input
+		border: none
+		outline: none
+		background: $bg_color
+		padding: 0.5rem 1rem
+		color: $color
+		font-size: 1.1rem
+		border-radius: 1rem
+
+		&:first-of-type
+			margin-top: 1rem
+
+		&:not(:first-of-type)
+			margin-top: 0.5rem
+
+	button
+		cursor: pointer
+		margin-top: 0.5rem
+		border: none
+		background: $bg_color
+		padding: 0.5rem 1rem
+		color: $color
+		border-radius: 1rem
+		transition: all 200ms ease
+
+		&:hover
+			background: yellowgreen
+			color: black
+
+.viewContact
+	background: $container_color
+	display: flex
+	flex-direction: column
+	align-items: center
+	width: 350px
+	border-radius: 1rem
+	padding: 1rem
+	border: 1px dashed rgb(50, 100, 50)
+
+	&_wrap
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-top: 1rem
+
+	.name
+		font-size: 2rem
+		letter-spacing: 1px
+
+	img
+		width: 150px
+		height: 150px
+		border-radius: 50%
+		margin-top: 0.5rem
+
+	.tel
+		margin-top: 0.5rem
+		font-size: 1.2rem
+		color: rgb(194, 206, 34)
+
+	.description
+		text-align: center
+
+	.buttons
+		margin-top: 0.5rem
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-wrap: wrap
+		gap: 0.5rem
+
+		.edit
+			cursor: pointer
+			background: rgb(0, 100, 150)
+			padding: 0.5rem 1rem
+			border-radius: 0.7rem
+			color: wheat
+
+			&:hover
+				background: rgb(25, 125, 200)
+				color: white
+
+		.del
+			cursor: pointer
+			background: rgb(100, 25, 25)
+			color: wheat
+			padding: 0.5rem 1rem
+			border-radius: 0.7rem
+
+			&:hover
+				background: rgb(150, 50, 50)
+				color: white
+
+.editMenu
+	z-index: 2
+	background: $container_color
+	padding: 1rem
+	position: absolute
+	border-radius: 1rem
+	display: flex
+	justify-content: center
+	flex-direction: column
+	align-items: center
+	transition: all 400ms ease
+	width: 350px
+	top: 0
+	left: 50%
+	transform: translateX(-50%) translateY(-100%)
+
+	&.opened
+		top: 50%
+		transform: translateX(-50%) translateY(-50%)
+
+	.close
+		cursor: pointer
+		position: absolute
+		top: 0.5rem
+		left: 0.5rem
+		padding: 1rem
+		background: $bg_color
+		border-radius: 50%
+		width: 40px
+		height: 40px
+		display: flex
+		justify-content: center
+		align-items: center
+		transition: all 200ms ease
+
+		&:hover
+			background: rgb(255, 100, 100)
+			color: white
+
+	p
+		font-size: 1.3rem
+
+	input
+		border: none
+		outline: none
+		background: $bg_color
+		padding: 0.5rem 1rem
+		color: $color
+		font-size: 1.1rem
+		border-radius: 1rem
+
+		&:first-of-type
+			margin-top: 1rem
+
+		&:not(:first-of-type)
+			margin-top: 0.5rem
+
+	button
+		cursor: pointer
+		margin-top: 0.5rem
+		border: none
+		background: $bg_color
+		padding: 0.5rem 1rem
+		color: $color
+		border-radius: 1rem
+		transition: all 200ms ease
+
+		&:hover
+			background: yellowgreen
+			color: black

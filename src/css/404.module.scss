@@ -1,0 +1,37 @@
+$bg_color: rgb(21, 22, 28);
+$container_color: rgb(33, 35, 41);
+$color: rgb(150, 149, 155);
+$sun_filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+
+.container {
+	margin-top: 2rem;
+	text-align: center;
+
+	h3 {
+		font-size: min(7vw, 5rem);
+	}
+
+	a {
+		color: $color;
+		text-decoration: none;
+		background: $container_color;
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+		font-size: min(4vw, 2rem);
+		transition: all 200ms;
+
+		&:hover {
+			background: darkcyan;
+			color: white;
+			transition: all 200ms;
+		}
+	}
+
+	.row {
+		margin-top: 1rem;
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}
